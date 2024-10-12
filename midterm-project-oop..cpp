@@ -167,8 +167,20 @@ public:
 	
 	    while (looper) 
 		{
-	        cout << "Enter ID: ";
-	        cin >> id;
+			bool idLooper = true;
+			
+			while(idLooper)
+			{
+			    cout << "Enter ID: ";
+			    getline (cin, id);
+			        
+			    if (id.find(' ') != string::npos || id.empty()) 
+				{
+			        cout << "Invalid ID! ID cannot contain spaces or be empty." << endl;
+			        continue;
+			    }
+			    idLooper = false;
+			}
 	
 	        bool idExists = false;
 	        for (int i = 0; i < itemCount; ++i) 
@@ -262,12 +274,25 @@ public:
 	
 	    while (retry) 
 	    {
-	        string id;
-	        bool looper = true;
-	        bool itemFound = false;
-	
-	        cout << "Enter ID to update: ";
-	        cin >> id;
+	    	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		    string id;
+		    bool idLooper = true;
+			
+			while(idLooper)
+			{
+			    cout << "Enter ID to update: ";
+			    getline (cin, id);
+			        
+			    if (id.find(' ') != string::npos || id.empty()) 
+				{
+			        cout << "Invalid ID! ID cannot contain spaces or be empty." << endl;
+			        continue;
+			    }
+			    idLooper = false;
+			}
+		        
+		    bool looper = true;
+		    bool itemFound = false;
 	
 	        for (int i = 0; i < itemCount; ++i) 
 	        {
@@ -425,9 +450,22 @@ public:
 	
 	    while (retry) 
 	    {
+	    	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	        string id;
-	        cout << "Enter ID to remove: ";
-	        cin >> id;
+	        bool idLooper = true;
+			
+			while(idLooper)
+			{
+			    cout << "Enter ID to remove: ";
+			    getline (cin, id);
+			        
+			    if (id.find(' ') != string::npos || id.empty()) 
+				{
+			        cout << "Invalid ID! ID cannot contain spaces or be empty." << endl;
+			        continue;
+			    }
+			    idLooper = false;
+			}
 	
 	        bool itemFound = false;
 	        
@@ -624,9 +662,22 @@ public:
 	
 	    while (retry) 
 	    {
+	    	cin.ignore(numeric_limits<streamsize>::max(), '\n');8
 	        string id;
-	        cout << "Enter ID to search: ";
-	        cin >> id;
+	        bool idLooper = true;
+			
+			while(idLooper)
+			{
+			    cout << "Enter ID to search: ";
+			    getline (cin, id);
+			        
+			    if (id.find(' ') != string::npos || id.empty()) 
+				{
+			        cout << "Invalid ID! ID cannot contain spaces or be empty." << endl;
+			        continue;
+			    }
+			    idLooper = false;
+			}	        
 	
 	        string lowerId = id;
 	        for (auto &c : lowerId) 
